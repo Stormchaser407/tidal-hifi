@@ -274,7 +274,7 @@ function addIPCEventListeners() {
         break;
       case globalEvents.setLoopState: {
         const targetState = payload?.targetState;
-        if (typeof targetState === "string") {
+        if (targetState === "off" || targetState === "single" || targetState === "all") {
           setLoopState(targetState);
         }
         break;
