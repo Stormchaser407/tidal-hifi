@@ -1,0 +1,22 @@
+{
+  "sources": [
+    {
+      "name": "tidal-hifi-endpoint",
+      "type": "endpointlz",
+      "data": {
+        "token": "REPLACE_WITH_VALUE_FROM_DOT_TIDAL_HIFI_TOKEN",
+        "slug": "tidal"
+      }
+    }
+  ],
+  "clients": [
+    {
+      "name": "listenbrainz",
+      "type": "listenbrainz",
+      "data": {
+        "username": "REPLACE_WITH_LISTENBRAINZ_USERNAME",
+        "token": "REPLACE_WITH_LISTENBRAINZ_TOKEN"
+      }
+    }
+  ]
+}

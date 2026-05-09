@@ -1,0 +1,4 @@
+# Put a long random token here and keep this file local-only
+# Example:
+# tidal-hifi-scrobbles-change-me-2026
+TIDAL_HIFI_SCROBBLE_TOKEN=tidal-hifi-scrobbles-change-me-2026

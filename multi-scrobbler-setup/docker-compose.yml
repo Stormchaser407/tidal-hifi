@@ -1,0 +1,23 @@
+name: tidal-hifi-scrobble
+
+services:
+  multi-scrobbler:
+    image: foxxmd/multi-scrobbler:latest
+    restart: unless-stopped
+    volumes:
+      - ./data:/config
+      - ./config.json:/config/config.json:ro
+      - ./logs:/logs
+    ports:
+      - "9078:9078"
+    environment:
+      TZ: America/New_York
+      BASE_URL: http://localhost:9078
+      PUID: "1000"
+      PGID: "1000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9078/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s

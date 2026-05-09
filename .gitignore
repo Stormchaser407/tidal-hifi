@@ -18,3 +18,13 @@ themes
 !src/themes
 .sass-cache
 html-exports
+
+# Local multi-scrobbler runtime and secrets
+multi-scrobbler-setup/.tidal-hifi-token
+multi-scrobbler-setup/secrets/*
+multi-scrobbler-setup/data/*
+multi-scrobbler-setup/logs/*
+!multi-scrobbler-setup/secrets/.gitkeep
+!multi-scrobbler-setup/secrets/*.example
+!multi-scrobbler-setup/data/.gitkeep
+!multi-scrobbler-setup/logs/.gitkeep
