@@ -21,6 +21,7 @@ html-exports
 
 # Local multi-scrobbler runtime and secrets
 multi-scrobbler-setup/.tidal-hifi-token
+multi-scrobbler-setup/data-backup-*/
 multi-scrobbler-setup/secrets/*
 multi-scrobbler-setup/data/*
 multi-scrobbler-setup/logs/*

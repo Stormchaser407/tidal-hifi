@@ -41,14 +41,14 @@ From repo root:
 
 ```bash
 cd multi-scrobbler-setup
-docker compose up -d
+podman compose up -d
 ```
 
 Verify:
 
 ```bash
 curl http://localhost:9078/health
-docker compose logs -f
+podman compose logs -f
 ```
 
 Dashboard: <http://localhost:9078>
@@ -58,7 +58,7 @@ Dashboard: <http://localhost:9078>
 In Tidal Hi-Fi settings (ListenBrainz section):
 
 - Enable ListenBrainz: checked
-- API URL: `http://localhost:9078/api/listenbrainz/tidal`
+- API URL: `http://localhost:9078/1/submit-listens`
 - User Token: same token as `sources[0].data.token` in `multi-scrobbler-setup/config.json`
 - Delay: `5000`
 
@@ -71,7 +71,7 @@ Save settings and restart Tidal Hi-Fi.
 
 ```bash
 cd multi-scrobbler-setup
-docker compose logs -f
+podman compose logs -f
 ```
 
 3. Confirm a new listen appears in ListenBrainz.
@@ -80,7 +80,7 @@ docker compose logs -f
 
 ### Connection refused
 
-- Confirm stack is running: `docker compose ps`
+- Confirm stack is running: `podman compose ps`
 - Recheck health endpoint: `curl http://localhost:9078/health`
 
 ### Invalid token
@@ -91,7 +91,17 @@ docker compose logs -f
 ### No scrobbles on ListenBrainz
 
 - Recheck ListenBrainz username/token in `config.json`
-- Inspect `docker compose logs -f` for client errors
+- Inspect `podman compose logs -f` for client errors
+
+## Additional Clients
+
+You can scrobble to Last.fm and Libre.fm from the same Tidal source.
+
+1. Add `lastfm` and `librefm` clients in `multi-scrobbler-setup/config.json`.
+2. Restart stack: `podman compose up -d --force-recreate`
+3. Complete auth callbacks:
+   - Last.fm: `http://localhost:9078/api/client/auth?name=lastfm&type=lastfm`
+   - Libre.fm: `http://localhost:9078/api/client/auth?name=librefm&type=librefm`
 
 ## References
 
